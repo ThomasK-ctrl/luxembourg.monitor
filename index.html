@@ -57,18 +57,28 @@ button{cursor:pointer;font-family:inherit;}
   color:var(--text);letter-spacing:0.06em;text-transform:uppercase;
 }
 .topbar-div{width:1px;height:20px;background:var(--line);}
-.page-tabs{display:flex;gap:2px;}
+.page-tabs {
+  display: flex;
+  gap: 2px;
+}
+
 .page-tab {
+  padding: 5px 12px;                 /* ← keep structure consistent */
+  border-radius: 4px;
+
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--text2);
+
+  background: transparent;           /* ← KEY FIX */
+  color: var(--text3);               /* slightly dimmer */
+  border: 1px solid transparent;
 }
 
 .page-tab:hover {
   color: var(--text);
-  background: var(--surface);
+  background: var(--surface2);       /* softer than surface */
 }
 
 .tab-s2 {
