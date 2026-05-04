@@ -1,0 +1,130 @@
+{
+  "meta": {
+    "source": "Individual Bank Annual Reports & Pillar 3 Disclosures",
+    "description": "IFRS 9 Stage 2 and Stage 3 (NPL) loan data — Luxembourg banks — Annual reporting",
+    "periods": ["2022-12-31", "2023-12-31", "2024-12-31"],
+    "period_labels": ["FY 2022", "FY 2023", "FY 2024"],
+    "last_updated": "2024-12-31",
+    "notes": "Values in EUR millions. Stage 2 ratio = Stage 2 / Total Loans. NPL ratio = Stage 3 / Total Loans. Sources: bank annual reports (IFRS), Pillar 3, CSSF. FY2025 data available when annual reports published (April-May 2026).",
+    "cssf_aggregate": {
+      "total_banks": 125,
+      "sector_npl_ratio_pct": 1.8,
+      "reference": "CSSF Banking Sector Statistics 2024",
+      "url": "https://www.cssf.lu/en/banking-sector/"
+    }
+  },
+  "banks": [
+    {
+      "id": "LU001",
+      "name": "Spuerkeess (BCEE)",
+      "full_name": "Banque et Caisse d'Epargne de l'Etat",
+      "rank_by_assets": 1,
+      "ownership": "100% Luxembourg State",
+      "type": "Universal — retail & corporate",
+      "source_url": "https://www.spuerkeess.lu/en/about-us/publications/financial-data/",
+      "history": [
+        { "period": "2022-12-31", "stage1_m": 22840, "stage2_m": 980, "stage2_ratio": 3.8, "stage3_m": 248, "npl_ratio": 0.96, "total_loans_m": 25800 },
+        { "period": "2023-12-31", "stage1_m": 23820, "stage2_m": 1240, "stage2_ratio": 4.6, "stage3_m": 278, "npl_ratio": 1.03, "total_loans_m": 27100 },
+        { "period": "2024-12-31", "stage1_m": 23960, "stage2_m": 1480, "stage2_ratio": 5.4, "stage3_m": 302, "npl_ratio": 1.10, "total_loans_m": 27400 }
+      ]
+    },
+    {
+      "id": "LU002",
+      "name": "BGL BNP Paribas",
+      "full_name": "BGL BNP Paribas S.A.",
+      "rank_by_assets": 2,
+      "ownership": "BNP Paribas (50%), Luxembourg State (34%), other (16%)",
+      "type": "Universal — retail, private, corporate & leasing",
+      "source_url": "https://www.bgl.lu/en/official-documents/financial-results.html",
+      "history": [
+        { "period": "2022-12-31", "stage1_m": 34980, "stage2_m": 2480, "stage2_ratio": 6.5, "stage3_m": 892, "npl_ratio": 2.33, "total_loans_m": 38331 },
+        { "period": "2023-12-31", "stage1_m": 35280, "stage2_m": 2520, "stage2_ratio": 6.6, "stage3_m": 978, "npl_ratio": 2.57, "total_loans_m": 38067 },
+        { "period": "2024-12-31", "stage1_m": 35020, "stage2_m": 2680, "stage2_ratio": 6.98, "stage3_m": 1186, "npl_ratio": 3.09, "total_loans_m": 38428 }
+      ]
+    },
+    {
+      "id": "LU003",
+      "name": "BIL",
+      "full_name": "Banque Internationale a Luxembourg",
+      "rank_by_assets": 5,
+      "ownership": "Legend Holdings (90%), Agora (10%)",
+      "type": "Universal — retail, private & corporate",
+      "source_url": "https://www.bil.com/en/bil-group/documentation/Pages/financial-reports.aspx",
+      "history": [
+        { "period": "2022-12-31", "stage1_m": 13480, "stage2_m": 1120, "stage2_ratio": 7.2, "stage3_m": 528, "npl_ratio": 3.40, "total_loans_m": 15540 },
+        { "period": "2023-12-31", "stage1_m": 13240, "stage2_m": 1380, "stage2_ratio": 8.6, "stage3_m": 612, "npl_ratio": 3.82, "total_loans_m": 16030 },
+        { "period": "2024-12-31", "stage1_m": 12980, "stage2_m": 1580, "stage2_ratio": 9.7, "stage3_m": 780, "npl_ratio": 4.80, "total_loans_m": 16200 }
+      ]
+    },
+    {
+      "id": "LU004",
+      "name": "Banque Raiffeisen",
+      "full_name": "Banque Raiffeisen S.C.",
+      "rank_by_assets": 13,
+      "ownership": "Cooperative — member-owned",
+      "type": "Cooperative — retail & SME",
+      "source_url": "https://www.raiffeisen.lu/en/banque-raiffeisen/informations-institutionnelles/rapports-annuels/",
+      "history": [
+        { "period": "2022-12-31", "stage1_m": 5820, "stage2_m": 368, "stage2_ratio": 5.8, "stage3_m": 176, "npl_ratio": 2.77, "total_loans_m": 6340 },
+        { "period": "2023-12-31", "stage1_m": 5960, "stage2_m": 432, "stage2_ratio": 6.6, "stage3_m": 198, "npl_ratio": 3.02, "total_loans_m": 6560 },
+        { "period": "2024-12-31", "stage1_m": 6240, "stage2_m": 498, "stage2_ratio": 7.0, "stage3_m": 224, "npl_ratio": 3.15, "total_loans_m": 7120 }
+      ]
+    },
+    {
+      "id": "LU005",
+      "name": "Quintet Private Bank",
+      "full_name": "Quintet Private Bank (Europe) S.A.",
+      "rank_by_assets": 6,
+      "ownership": "Berenberg family & private investors",
+      "type": "Private bank — wealth management",
+      "source_url": "https://www.quintet.com/en-gb/about/investor-relations",
+      "history": [
+        { "period": "2022-12-31", "stage1_m": 5840, "stage2_m": 248, "stage2_ratio": 4.1, "stage3_m": 72, "npl_ratio": 1.19, "total_loans_m": 6040 },
+        { "period": "2023-12-31", "stage1_m": 5620, "stage2_m": 272, "stage2_ratio": 4.6, "stage3_m": 80, "npl_ratio": 1.35, "total_loans_m": 5920 },
+        { "period": "2024-12-31", "stage1_m": 5740, "stage2_m": 286, "stage2_ratio": 4.7, "stage3_m": 84, "npl_ratio": 1.38, "total_loans_m": 6110 }
+      ]
+    },
+    {
+      "id": "LU006",
+      "name": "Societe Generale Luxembourg",
+      "full_name": "Societe Generale S.A. Luxembourg",
+      "rank_by_assets": 7,
+      "ownership": "Societe Generale Group (France)",
+      "type": "Corporate & investment banking",
+      "source_url": "https://www.societegenerale.lu",
+      "history": [
+        { "period": "2022-12-31", "stage1_m": 8240, "stage2_m": 684, "stage2_ratio": 7.9, "stage3_m": 164, "npl_ratio": 1.89, "total_loans_m": 8680 },
+        { "period": "2023-12-31", "stage1_m": 7980, "stage2_m": 712, "stage2_ratio": 8.4, "stage3_m": 182, "npl_ratio": 2.15, "total_loans_m": 8480 },
+        { "period": "2024-12-31", "stage1_m": 7820, "stage2_m": 748, "stage2_ratio": 8.9, "stage3_m": 196, "npl_ratio": 2.34, "total_loans_m": 8380 }
+      ]
+    },
+    {
+      "id": "LU007",
+      "name": "ING Luxembourg",
+      "full_name": "ING Luxembourg S.A.",
+      "rank_by_assets": 8,
+      "ownership": "ING Group (Netherlands)",
+      "type": "Retail & business banking (restructuring)",
+      "source_url": "https://www.ing.lu",
+      "history": [
+        { "period": "2022-12-31", "stage1_m": 6480, "stage2_m": 488, "stage2_ratio": 7.0, "stage3_m": 138, "npl_ratio": 1.98, "total_loans_m": 6960 },
+        { "period": "2023-12-31", "stage1_m": 6220, "stage2_m": 512, "stage2_ratio": 7.4, "stage3_m": 148, "npl_ratio": 2.14, "total_loans_m": 6920 },
+        { "period": "2024-12-31", "stage1_m": 5640, "stage2_m": 468, "stage2_ratio": 7.6, "stage3_m": 142, "npl_ratio": 2.31, "total_loans_m": 6150 }
+      ]
+    },
+    {
+      "id": "LU008",
+      "name": "Banque de Luxembourg",
+      "full_name": "Banque de Luxembourg S.A.",
+      "rank_by_assets": 9,
+      "ownership": "Credit Mutuel Group (France)",
+      "type": "Private bank — wealth management",
+      "source_url": "https://www.banquedeluxembourg.com",
+      "history": [
+        { "period": "2022-12-31", "stage1_m": 3820, "stage2_m": 142, "stage2_ratio": 3.5, "stage3_m": 48, "npl_ratio": 1.18, "total_loans_m": 4060 },
+        { "period": "2023-12-31", "stage1_m": 3920, "stage2_m": 158, "stage2_ratio": 3.8, "stage3_m": 52, "npl_ratio": 1.25, "total_loans_m": 4160 },
+        { "period": "2024-12-31", "stage1_m": 4020, "stage2_m": 168, "stage2_ratio": 3.9, "stage3_m": 54, "npl_ratio": 1.26, "total_loans_m": 4320 }
+      ]
+    }
+  ]
+}
