@@ -9,25 +9,33 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
 :root {
-  --bg:        #111213;
-  --surface:   #181a1b;
-  --surface2:  #1f2122;
-  --surface3:  #262829;
-  --line:      rgba(255,255,255,0.08);
-  --line2:     rgba(255,255,255,0.04);
-  --text:      #f0f2f8;
-  --text2:     #9aa3bc;
-  --text3:     #525d78;
-  --s2:        #f59e0b;
-  --s2dim:     rgba(245,158,11,0.12);
-  --s2brd:     rgba(245,158,11,0.28);
-  --s3:        #f87171;
-  --s3dim:     rgba(248,113,113,0.10);
-  --s3brd:     rgba(248,113,113,0.24);
-  --green:     #4ade80;
-  --blue:      #60a5fa;
-  --lux-red:   #ef2b2d;
-  --lux-blue:  #4b5563;
+  --bg:         #141820;
+  --surface:    #1c2130;
+  --surface2:   #232a3a;
+  --surface3:   #2a3248;
+
+  --line:       rgba(255,255,255,0.10);
+  --line2:      rgba(255,255,255,0.05);
+
+  --text:       #f0f2f8;
+  --text2:      #adb5cc;
+  --text3:      #6b7590;
+
+  /* Stage colors (keep) */
+  --s2:         #fbbf24;
+  --s2dim:      rgba(251,191,36,0.14);
+  --s2brd:      rgba(251,191,36,0.32);
+
+  --s3:         #f87171;
+  --s3dim:      rgba(248,113,113,0.12);
+  --s3brd:      rgba(248,113,113,0.28);
+
+  --green:      #4ade80;
+
+  /* REPLACE BLUE → GREY */
+  --blue:       #9ca3af;
+  --blue-dim:   rgba(156,163,175,0.12);
+
   --r: 8px;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -50,14 +58,30 @@ button{cursor:pointer;font-family:inherit;}
 }
 .topbar-div{width:1px;height:20px;background:var(--line);}
 .page-tabs{display:flex;gap:2px;}
-.page-tab{
-  padding:5px 12px;border-radius:4px;font-size:11px;font-weight:600;
-  border:1px solid transparent;background:none;color:var(--text2);
-  transition:all 0.2s;letter-spacing:0.06em;text-transform:uppercase;
+.page-tab {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text2);
 }
-.page-tab:hover{color:var(--text);background:var(--surface2);}
-.tab-s2{background:var(--s2dim);border-color:var(--s2brd);color:var(--s2);}
-.tab-s3{background:var(--s3dim);border-color:var(--s3brd);color:var(--s3);}
+
+.page-tab:hover {
+  color: var(--text);
+  background: var(--surface2);
+}
+
+.tab-s2 {
+  background: var(--s2dim);
+  border-color: var(--s2brd);
+  color: var(--s2);
+}
+
+.tab-s3 {
+  background: var(--s3dim);
+  border-color: var(--s3brd);
+  color: var(--s3);
+}
 .topbar-right{margin-left:auto;display:flex;align-items:center;gap:10px;}
 .data-badge{
   font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--text3);
@@ -122,10 +146,11 @@ button{cursor:pointer;font-family:inherit;}
 }
 .ph-badge.s2{background:var(--s2dim);border:1px solid var(--s2brd);color:var(--s2);}
 .ph-badge.s3{background:var(--s3dim);border:1px solid var(--s3brd);color:var(--s3);}
-.ph-title{
-  font-family:'Syne',sans-serif;font-size:24px;font-weight:700;
-  color:var(--text);line-height:1.45;letter-spacing:-0.02em;
-  overflow:visible;padding-bottom:4px;
+.ph-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 .ph-sub{font-size:12.5px;color:var(--text2);margin-top:4px;line-height:1.5;}
 .ph-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;}
@@ -154,23 +179,30 @@ button{cursor:pointer;font-family:inherit;}
   font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.14em;
   text-transform:uppercase;color:var(--text3);margin-bottom:6px;font-weight:500;
 }
-.kpi-val{
-  font-family:'JetBrains Mono',monospace;font-size:24px;font-weight:500;
-  color:var(--text);line-height:1;letter-spacing:-0.02em;
+.kpi-val {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
 }
 .kpi-sub{font-size:10px;color:var(--text3);margin-top:4px;font-family:'JetBrains Mono',monospace;letter-spacing:0.04em;}
 .kpi-delta{font-family:'JetBrains Mono',monospace;font-size:10px;margin-top:4px;}
 .up{color:var(--s3);}
 .dn{color:var(--green);}
-.kpi.ref{border-top-color:var(--blue);background:rgba(96,165,250,0.04);}
+.kpi.ref {
+  border-top-color: #9ca3af;
+  background: rgba(156,163,175,0.05);
+}
 
 /* ── CHART GRID ── */
 .chart-row{display:grid;gap:12px;margin-bottom:12px;}
 .chart-row.two{grid-template-columns:1fr 1fr;}
 .chart-row.one{grid-template-columns:1fr;}
-.chart-card{
-  background:var(--surface);border:1px solid var(--line);
-  border-radius:var(--r);padding:16px 18px;
+.chart-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  padding: 16px 18px;
 }
 .cc-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px;}
 .cc-title{font-size:12px;font-weight:600;color:var(--text);letter-spacing:0.02em;text-transform:uppercase;font-family:'Inter',sans-serif;}
@@ -254,16 +286,16 @@ tbody td{padding:10px 14px;font-size:13px;vertical-align:middle;}
   border-radius:6px;font-family:'JetBrains Mono',monospace;font-size:10px;
   color:var(--text3);line-height:1.7;border:1px solid var(--line);
 }
-.m-src a{color:var(--blue);text-decoration:none;}
+.m-src a{color:#9ca3af;text-decoration:none;}
 .m-src a:hover{text-decoration:underline;}
 
 /* ── INFO BOX ── */
 .info-box{
   background:var(--surface2);border:1px solid var(--line);
-  border-left:2px solid var(--blue);border-radius:var(--r);
+  border-left:2px solid #9ca3af;border-radius:var(--r);
   padding:14px 16px;margin-bottom:12px;
 }
-.info-title{font-size:9px;font-weight:600;color:var(--blue);margin-bottom:5px;
+.info-title{font-size:9px;font-weight:600;color:#9ca3af;margin-bottom:5px;
   font-family:'JetBrains Mono',monospace;letter-spacing:0.08em;text-transform:uppercase;}
 .info-body{font-size:12px;color:var(--text2);line-height:1.75;font-family:'Inter',sans-serif;}
 
@@ -370,8 +402,8 @@ tbody td{padding:10px 14px;font-size:13px;vertical-align:middle;}
     </div>
 
     <!-- FY2025 disclaimer banner -->
-    <div id="est-banner" style="display:none;background:rgba(96,165,250,0.08);border:1px solid rgba(96,165,250,0.22);border-left:3px solid var(--blue);border-radius:var(--r);padding:12px 16px;margin-bottom:16px;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text3);line-height:1.8;letter-spacing:0.03em;">
-      <span style="color:var(--blue);font-weight:600;letter-spacing:0.12em;text-transform:uppercase;">⚠ FY 2025 — Preliminary Estimates</span><br>
+    <div id="est-banner" style="display:none;background:rgba(96,165,250,0.08);border:1px solid rgba(96,165,250,0.22);border-left:3px solid #9ca3af;border-radius:var(--r);padding:12px 16px;margin-bottom:16px;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text3);line-height:1.8;letter-spacing:0.03em;">
+      <span style="color:#9ca3af;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;">⚠ FY 2025 — Preliminary Estimates</span><br>
       FY 2025 figures are <strong style="color:var(--text2)">preliminary estimates</strong> based on published Q4/FY2025 results press releases, Pillar 3 reports and analyst research. Luxembourg banks typically publish complete annual reports including full IFRS 9 Stage 2 and Stage 3 asset quality tables in <strong style="color:var(--text2)">April–May of the following year</strong>.<br>
       Known: BIL published FY2025 results 30 Apr 2026 (net income €210m +24%, loans stable at €16.2bn). BGL BNP Paribas published Q4/FY2025 results 5 Feb 2026 (revenues +11.8% in Q4 2025). Spuerkeess and Banque Raiffeisen FY2025 annual reports expected May 2026.<br>
       <span style="color:rgba(96,165,250,0.7)">All FY 2025 Stage 2 and NPL figures will be updated with audited data upon publication of full annual reports.</span>
@@ -577,7 +609,7 @@ function init() {
     <div style="margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid var(--line)">
       <div style="font-weight:600;color:var(--text);font-size:13px">${b.name}</div>
       <div style="font-size:11px;color:var(--text3);font-family:'JetBrains Mono',monospace;margin-top:2px">${b.full_name}</div>
-      <a href="${b.source_url}" target="_blank" style="font-size:11px;color:var(--blue);font-family:'JetBrains Mono',monospace">${b.source_url}</a>
+      <a href="${b.source_url}" target="_blank" style="font-size:11px;color:#9ca3af;font-family:'JetBrains Mono',monospace">${b.source_url}</a>
     </div>`).join('');
 
   renderOverview();
@@ -799,7 +831,7 @@ function showBank(bank,navBtn){
   // History table
   document.getElementById('bank-tbl-head').innerHTML=['Period','Stage 1 (€m)','Stage 2 (€m)','S2 Ratio','Stage 3 (€m)','NPL Ratio','Total Loans'].map(h=>`<th>${h}</th>`).join('');
   document.getElementById('bank-tbl-body').innerHTML=bank.history.map(h=>`<tr>
-    <td class="mono" style="color:${h.estimated?'var(--blue)':'var(--text3)'}">${h.period}${h.estimated?' <span style="font-size:8px;background:rgba(96,165,250,0.15);padding:1px 5px;border-radius:2px;letter-spacing:0.08em;text-transform:uppercase">est.</span>':''}</td>
+    <td class="mono" style="color:${h.estimated?'#9ca3af':'var(--text3)'}">${h.period}${h.estimated?' <span style="font-size:8px;background:rgba(96,165,250,0.15);padding:1px 5px;border-radius:2px;letter-spacing:0.08em;text-transform:uppercase">est.</span>':''}</td>
     <td class="mono">€${h.stage1_m.toLocaleString()}m</td>
     <td class="mono" style="color:${h.stage2_ratio>=9?'#fb923c':'var(--text)'}"><strong>€${h.stage2_m.toLocaleString()}m</strong></td>
     <td class="mono" style="color:${h.stage2_ratio>=9?'#fb923c':'var(--text)'}"><strong>${f1(h.stage2_ratio)}%</strong></td>
